@@ -119,5 +119,9 @@ BEGIN
 	 ORDER BY ordercheckincode, quantity
  END
 
-# Feed data from forntend
+# Get menu from forntend
 ![Screenshot](Menu.GIF)
+
+# Checkout order
+![Screenshot](order.GIF)
+
