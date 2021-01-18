@@ -119,7 +119,7 @@ BEGIN
 	 ORDER BY ordercheckincode, quantity
  END
 
-# Get menu from forntend
+# Get menu from forntend (FYI... just feed some data from UI for testing RDM)
 ![Screenshot](Menu.GIF)
 
 # Checkout order
