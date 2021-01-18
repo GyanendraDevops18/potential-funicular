@@ -1,0 +1,66 @@
+<div class="container bootdey">
+    <div class="row invoice row-printable">
+        <div class="col-md-10">
+            <div class="panel panel-default plain" id="dash_0">
+                <div class="panel-body p30">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="invoice-details mt25">
+                                <div class="well">
+                                    <ul class="list-unstyled mb0">
+                                        <li><strong>Order:</strong> <span class="label label-danger"> Checkout</span></li>
+                                        <li><strong>Status:</strong> <span class="label label-danger"> UNPAID</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="invoice-items">
+                                <div class="table-responsive" style="overflow: hidden; outline: none;" tabindex="0">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Product's Order Description</th>
+                                                <th class="per5 text-center">Qty</th>
+                                                <th class="per5 text-center">Unit Price (in USD)</th>
+                                                <th class="per25 text-center">Total</th>
+                                                <th class="per25 text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngFor="let checkout of checkoutCollection">
+                                            <tr>
+                                                <td *ngIf="checkout.productname">{{ checkout.productname }}</td>
+                                                <td class="text-center" *ngIf="checkout.quantity">{{ checkout.quantity }}</td>
+                                                <td class="text-center" *ngIf="checkout.price">{{ checkout.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) }}</td>
+                                                <td class="text-center" *ngIf="checkout.price">{{ checkout.totalPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) }}</td>
+                                                <td class="text-center" *ngIf="checkout.productname">
+                                                        <button type="button" class="btn btn-danger" (click)="onCheckoutItemDelete(checkout.orderid)"><i class="far fa-trash-alt"></i>x</button></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="4" class="text-right">Sub Total:</th>
+                                                <th class="text-center">{{ totalSum.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="4" class="text-right">Credit:</th>
+                                                <th class="text-center">$0.00</th>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="4" class="text-right">Total:</th>
+                                                <th class="text-center">{{ totalSum.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) }}</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="invoice-footer mt25">
+                                <p class="text-center">
+                                    <button type="button" class="btn btn-warning btn-lg" (click)="onCheckout()">Checkout</button>                                    
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

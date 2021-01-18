@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Menu <b>Details</b></h2>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isLoading" style="text-align: center;">
+      <app-loading-spinner></app-loading-spinner>
+    </div>   
+    <table *ngIf="!isLoading" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Price (in USD)</th>
+          <th>Qty.</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let menuItem of menuItemCollection">
+          <td style="width: 100px;">
+            <img [src]="menuItem.imagesrc" class="img-fluid img-thumbnail" alt="menuItem.imagesrc">
+          </td>
+          <td>{{ menuItem.name }}</td>
+          <td>{{ menuItem.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) }}</td>
+          <td>
+            <input type="number" name="counter" min="1" max="5" 
+              class="form-control"
+              [value]="menuItem.qty" #counter>
+
+            <!-- <counter-input formControlName="counter" [counterRangeMax]="maxValue" [counterRangeMin]="minValue"
+              [counterValue]="50"></counter-input> -->
+          </td>
+          <td>
+            <button class="btn btn-primary" style="cursor: pointer;" 
+              (click)="onCheckout(menuItem, menuItem.qty = +counter.value)">Add
+              to Cart</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
