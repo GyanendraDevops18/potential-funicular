@@ -125,3 +125,7 @@ BEGIN
 # Checkout order
 ![Screenshot](order.GIF)
 
+# Swagger
+https://localhost:44330/swagger/index.html
+![Screenshot](swagger.GIF)
+
